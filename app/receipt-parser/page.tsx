@@ -19,6 +19,12 @@ export default function ReceiptParser() {
   const [receiptData, setReceiptData] = useState<ReceiptData | null>(null);
   const [loading, setLoading] = useState(false);
 
+  const exampleText = "Received from WalMart Supercenter on Jan 24, 2026. bought 2 gallons of milk for 3.50 each, a loaf of bread for 2.99, and a pack of gum for 1.25. Subtotal came to 11.24. Tax was 0.90. Total paid 12.14. Thanks for shopping!";
+
+  const handleUseExample = () => {
+    setInput(exampleText);
+  };
+
   async function handleSubmit() {
     if (!input) return;
     setLoading(true);
@@ -38,6 +44,24 @@ export default function ReceiptParser() {
 
       {/* Input Section */}
       <div className="flex flex-col gap-4 mb-8">
+        {/* Example Hint */}
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <div className="flex items-start justify-between gap-4">
+            <div className="flex-1">
+              <p className="text-sm font-medium text-blue-900 mb-2">💡 Example receipt text:</p>
+              <p className="text-sm text-blue-800 font-mono bg-white p-3 rounded border border-blue-200 break-words">
+                {exampleText}
+              </p>
+            </div>
+            <button
+              onClick={handleUseExample}
+              className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm font-medium transition whitespace-nowrap"
+            >
+              Use Example
+            </button>
+          </div>
+        </div>
+
         <textarea
           className="w-full h-40 p-4 border rounded-lg text-black"
           placeholder="Paste your messy receipt text here..."
