@@ -36,6 +36,16 @@ export default function Header() {
             >
               Receipt Parser
             </Link>
+            <Link
+              href="/support-triage"
+              className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                pathname === '/support-triage'
+                  ? 'text-blue-600 bg-blue-50'
+                  : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+              }`}
+            >
+              Support Triage
+            </Link>
           </div>
         </div>
       </nav>
